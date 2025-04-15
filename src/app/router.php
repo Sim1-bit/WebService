@@ -57,7 +57,7 @@
         echo json_encode($data);
     }
 
-    function articlesListCategory($categoria) 
+    function articlesList_Category($categoria) 
     {
         require_once("db.php");
 
@@ -76,7 +76,7 @@
         echo json_encode($data);
     }
 
-    function articlesListSubCategory($categoria, $sottoCategoria) 
+    function articlesList_SubCategory($categoria, $sottoCategoria) 
     {
         require_once("db.php");
 
