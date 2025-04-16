@@ -6,7 +6,6 @@ async function fetchData(link)
     {
         const response = await fetch(url);
         const data = await response.json();
-        //console.log(data);
         return data;
     }
     catch (error)
@@ -20,7 +19,8 @@ async function populateTable(link)
     console.log("Calling API:", link);
     const data = await fetchData(link);
     console.log("Received data:", data);
-    data_table = document.getElementById("data_table");
+    const data_table = document.getElementById("data_table");
+    data_table.innerHTML = "<tr><th>Articolo</th> <th>Categoria</th> <th>Sotto Categoria</th></tr>";
 
     data.forEach(array => 
     {
@@ -41,7 +41,7 @@ async function populateTable(link)
     });
 }
 
-async function makeRequest()
+async function selectionArticles()
 {
     const categorie = document.getElementById("categories").value;
     const sottoCategorie = document.getElementById("subCategories").value;
@@ -64,5 +64,5 @@ async function makeRequest()
 
 document.getElementById("btnArticles").addEventListener("click", function()
 {
-    makeRequest();
+    selectionArticles();
 });
