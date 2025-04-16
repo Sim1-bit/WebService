@@ -39,79 +39,26 @@
         notAllowed();
     }
 
-    function articlesList() 
+    function language($lingua) 
     {
-        require_once("db.php");
-
-        $stmt = $conn->prepare("SELECT nome, categoria, sottoCategoria FROM articoli NATURAL JOIN categorie NATURAL JOIN sottoCategorie");
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        $data = array();
-
-        while($row = $result->fetch_assoc()) 
+        if($lingua == "en" || $lingua == "it")
         {
-            $data[] = $row;
+            $file = file_get_contents(__DIR__."/json/" . $lingua . ".json");
+            $json = json_decode($file, true);
+            header('Content-Type: application/json');
+            echo json_encode($json);
         }
-
-        echo json_encode($data);
-    }
-
-    function articlesList_Category($categoria) 
-    {
-        require_once("db.php");
-
-        $stmt = $conn->prepare("SELECT nome, categoria, sottoCategoria FROM articoli NATURAL JOIN categorie NATURAL JOIN sottoCategorie WHERE categoria = ?");
-        $stmt->bind_param("s", $categoria);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        $data = array();
-
-        while($row = $result->fetch_assoc()) 
+        else
         {
-            $data[] = $row;
+            $file = file_get_contents(__DIR__."/json/en.json");
+            $json = json_decode($file, true);
+            header('Content-Type: application/json');
+            echo json_encode($json);
         }
-
-        echo json_encode($data);
-    }
-
-    function articlesList_SubCategory($categoria, $sottoCategoria) 
-    {
-        require_once("db.php");
-
-        $stmt = $conn->prepare("SELECT nome, categoria, sottoCategoria FROM articoli NATURAL JOIN categorie NATURAL JOIN sottoCategorie WHERE categoria = ? AND sottoCategoria = ?");
-        $stmt->bind_param("ss", $categoria, $sottoCategoria);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        $data = array();
-
-        while($row = $result->fetch_assoc()) 
-        {
-            $data[] = $row;
-        }
-
-        echo json_encode($data);
-    }
-
-    function gestisci_articolo($categoria, $sottocategoria, $slug) 
-    {
-        echo "Articolo: " . $categoria . "/" . $sottocategoria . "/" . $slug;
-    }
-
-    function crea_articolo() 
-    {
-        echo "Creazione di un nuovo articolo";
     }
 
     function notAllowed() 
     {
         http_response_code(404);
         echo "Risorsa non trovata";
-    }
-
-    function gestisci_autenticazione() 
-    {
-        echo "Autenticazione";
     }

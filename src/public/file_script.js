@@ -14,55 +14,27 @@ async function fetchData(link)
     }
 }
 
-async function populateTable(link) 
+async function changeLanguage(link) 
 {
     console.log("Calling API:", link);
     const data = await fetchData(link);
     console.log("Received data:", data);
-    const data_table = document.getElementById("data_table");
-    data_table.innerHTML = "<tr><th>Articolo</th> <th>Categoria</th> <th>Sotto Categoria</th></tr>";
+    const par = document.getElementById("par");
+    const btn = document.getElementById("btn");
+    const label_lang = document.getElementById("label_lang");
 
-    data.forEach(array => 
-    {
-        const row = document.createElement("tr");
-        const data1 = document.createElement("td");
-        const data2 = document.createElement("td");
-        const data3 = document.createElement("td");
-
-        data1.textContent = array.nome;
-        data2.textContent = array.categoria;
-        data3.textContent = array.sottoCategoria;
-
-        row.appendChild(data1);
-        row.appendChild(data2);
-        row.appendChild(data3);
-
-        data_table.appendChild(row);
-    });
+    par.textContent = data.par;
+    btn.textContent = data.btn;
+    label_lang.textContent = data.label_lang;
 }
 
-async function selectionArticles()
+async function selectionLanguage()
 {
-    const categorie = document.getElementById("categories").value;
-    const sottoCategorie = document.getElementById("subCategories").value;
-    if(categorie != "")
-    {
-        if(sottoCategorie != "")
-        {
-            await populateTable(`/api/articoli/${categorie}/${sottoCategorie}`);
-        }
-        else
-        {
-            await populateTable(`/api/articoli/${categorie}`);
-        }
-    }
-    else
-    {
-        await populateTable("/api/articoli");
-    }
+    const languages = document.getElementById("languages").value;
+    await changeLanguage(`/api/lang/${languages}`);
 }
 
-document.getElementById("btnArticles").addEventListener("click", function()
+document.getElementById("btn").addEventListener("click", function()
 {
-    selectionArticles();
+    selectionLanguage();
 });
