@@ -1,19 +1,64 @@
+<!DOCTYPE html>
 <html>
-    <body>
-        <label id="label_lang" for="languages">
-            Categoria:
-        </label>
-        <select id="languages">
-            <option value="en">Englis</option>
-            <option value="it">Italiano</option>
-        </select>
-        <br>
-        <button id="btn">Cambia Lingua</button>
-        <p id="par">
+    <head>
+        <meta charset="UTF-8"> 
+        <title>My WebIO - Home</title>
+        <link rel="stylesheet" href="css/my_style.css">
+        <style type="text/css">
+            #title
+            {
+                text-decoration-line: underline;
+                text-decoration-color: rgb(51, 51, 240);
+                margin-bottom: 0px;
+            }
+            #sub_title
+            {
+                margin-top: 0px;
+            }
+            .top_bar
+            {
+                font-size: 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 10px;
+            }
+            #label_lang
+            {
+                text-align: right;
+            }
+        </style>
+        <link rel="icon" type="image/x-icon" href="imgs/MyIO.png">
+    </head>
+    
+    <body>  
+        <header>
+            <div class="top_bar">
+                <h1 id = "title">My WebIO</h1>
+                <div>
+                    <label id="label_lang" for="languages">Lingue:</label>
+                    <select id="languages">
+                        <option value=""> </option>
+                        <option value="en">English</option>
+                        <option value="it">Italiano</option>
+                    </select>
+                </div>
+            </div>
             
-        </p>
-        <script src="file_script.js">
-
-        </script>
+            <div class="top_bar">
+                <h3 id = "sub_title">Simone Giorgini 5CM</h3>
+                <h3>
+                    <nav>
+                        <ul>
+                            <li><a href ="" id="href_ptco">PTCO</a></li>
+                            <li><a href ="" id="href_projects">Progetti</a></li>
+                            <li><a href ="" id="href_trip">Gita</a></li>
+                            <li><a href ="" id="href_orientation">Orientamento</a></li>
+                        </ul>
+                    </nav>
+                </h3>
+            </div>
+        </header>
+        <script src="scripts/file_script.js"></script>
     </body>
 </html>

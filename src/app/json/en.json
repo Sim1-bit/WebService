@@ -1,5 +1,7 @@
 {
-    "par": "Hello",
-    "btn": "Change Language",
-    "label_lang": "Languages:"
+    "label_lang" : "Languages:",
+    "href_ptco" : "PTCO",
+    "href_projects" : "Projects",
+    "href_trip" : "Trip",
+    "href_orientation" : "Orientation"
 }

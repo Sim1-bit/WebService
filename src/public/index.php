@@ -3,6 +3,7 @@
 
     $routes = [
         'GET' => [
+            '/api/lang' => 'lang',
             '/api/lang/{lingua}' => 'language',
         ],
     ];
