@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head id="head">
+        <title>My WebIO - Home</title>
+        <link rel="icon" type="image/x-icon" href="imgs/MyIO.png">
+    </head>
+    <div id="body"></div>
+    <body>
+        <script>
+            fetch("/base/head.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("head").innerHTML += data;
+                })
+                .catch(error => {
+                    console.error("Errore nel caricamento:", error);
+                });
+
+            fetch("/base/body.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("body").innerHTML = data;
+                })
+                .catch(error => {
+                    console.error("Errore nel caricamento:", error);
+                });
+    
+
+
+            window.onload = function()
+            {
+                const aux = document.getElementById("href_home");
+                aux.style.backgroundColor = "rgb(23, 73, 188)";
+                aux.style.borderRadius = "50px";
+            };
+        </script>
+    </body>
+</html>
