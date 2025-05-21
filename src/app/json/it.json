@@ -1,7 +1,7 @@
 {
     "label_lang" : "Lingue:",
-    "href_ptco" : "PTCO",
+    "href_pcto" : "PCTO",
     "href_projects" : "Progetti",
-    "href_trip" : "Gita",
-    "href_orientation" : "Orientamento"
+    "href_orientation" : "Orientamento",
+    "txt1" : "Buongiorno"
 }

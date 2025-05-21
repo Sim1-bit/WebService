@@ -41,45 +41,48 @@
 
     function lang() 
     {
-        if(!isset($_COOKIE["lang"]))
+        if(!isset($_SESSION["lang"]))
         {
             $lingua = "en";
-            setcookie("lang", $lingua, time() + 31536000);
+            $_SESSION["lang"] = $lingua;
         }
         else
         {
-            $lingua = $_COOKIE["lang"];
+            $lingua = $_SESSION["lang"];
         }
 
         $file = file_get_contents(__DIR__."/json/" . $lingua . ".json");
         $json = json_decode($file, true);
+
         header('Content-Type: application/json');
         echo json_encode($json);
     }
-
-    function language($lingua) 
+    
+    function languagePage($lingua) 
     {
-        if($lingua != "en" && $lingua != "it" && !isset($_COOKIE["lang"]))
+        if($lingua != "en" && $lingua != "it" && !isset($_SESSION["lang"]))
         {
             $lingua = "en";
         }
-        elseif($lingua != "en" && $lingua != "it" && isset($_COOKIE["lang"]))
+        elseif($lingua != "en" && $lingua != "it" && isset($_SESSION["lang"]))
         {
-            $lingua = $_COOKIE["lang"];
+            $lingua = $_SESSION["lang"];
         }
-        
+
         $file = file_get_contents(__DIR__."/json/" . $lingua . ".json");
         $json = json_decode($file, true);
 
-        if(!isset($_COOKIE["lang"]) || $_COOKIE["lang"] != $lingua)
+        if(!isset($_SESSION["lang"]) || $_SESSION["lang"] != $lingua)
         {
-            setcookie("lang", $lingua, time() + 31536000);
+            $_SESSION["lang"] = $lingua;
         }
+
 
         header('Content-Type: application/json');
         echo json_encode($json);
     }
 
+    
     function notAllowed() 
     {
         http_response_code(404);

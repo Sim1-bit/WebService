@@ -1,10 +1,11 @@
 <?php
+     session_start();
     require_once '../app/router.php';
 
     $routes = [
         'GET' => [
             '/api/lang' => 'lang',
-            '/api/lang/{lingua}' => 'language',
+            '/api/lang/{lingua}' => 'languagePage',
         ],
     ];
 

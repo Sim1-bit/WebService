@@ -20,22 +20,32 @@ async function populatePage(link)
     const data = await fetchData(link);
     console.log("Received data:", data);
 
-    const href_ptco = document.getElementById("href_ptco");
+    const href_pcto = document.getElementById("href_pcto");
     const href_projects = document.getElementById("href_projects");
-    const href_trip = document.getElementById("href_trip");
     const href_orientation = document.getElementById("href_orientation");
     const label_lang = document.getElementById("label_lang");
+    const txt1 = document.getElementById("txt1");
 
     label_lang.textContent = data.label_lang;
-    href_ptco.textContent = data.href_ptco;
+    href_pcto.textContent = data.href_pcto;
     href_projects.textContent = data.href_projects;
-    href_trip.textContent = data.href_trip;
     href_orientation.textContent = data.href_orientation;
+    txt1.textContent = data.txt1;
 }
 
 document.addEventListener("DOMContentLoaded", function() 
 {
-    populatePage(`/api/lang`);
+    const path = window.location.pathname; // Ottieni il path della pagina
+    
+    const fileName = path.split("/").pop(); // Estrai solo il nome file
+    
+    const pageName = fileName.split(".")[0]; // Rimuovi l'estensione
+
+    const aux = document.getElementById("href_" . pageName);
+    aux.style.backgroundColor = "rgb(23, 73, 188)";
+    aux.style.borderRadius = "50px";
+
+    populatePage(`/api/${pageName}`);    
 });
 
 document.getElementById("languages").addEventListener("change", function()
@@ -43,6 +53,12 @@ document.getElementById("languages").addEventListener("change", function()
     const languages = document.getElementById("languages").value;
     if(languages != "")
     {
-        populatePage(`/api/lang/${languages}`);
+        const path = window.location.pathname; // Ottieni il path della pagina
+    
+        const fileName = path.split("/").pop(); // Estrai solo il nome file
+    
+        const pageName = fileName.split(".")[0]; // Rimuovi l'estensione
+
+        populatePage(`/api/${pageName}/${languages}`);
     }
 });

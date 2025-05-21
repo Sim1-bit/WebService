@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8"> 
-        <title>My WebIO - Trip</title>
+        <title>My WebIO - PCTO</title>
         <link rel="stylesheet" href="css/my_style.css">
         <style type="text/css">
             #title
@@ -56,25 +56,69 @@
                     <nav>
                         <ul>
                             <li><a href ="index.html" id="href_home">Home</a></li>
-                            <li><a href ="ptco.html" id="href_ptco">PTCO</a></li>
+                            <li><a href ="pcto.html" id="href_pcto">PCTO</a></li>
                             <li><a href ="projects.html" id="href_projects">Progetti</a></li>
-                            <li><a href ="trip.html" id="href_trip">Gita</a></li>
                             <li><a href ="orientation.html" id="href_orientation">Orientamento</a></li>
                         </ul>
                     </nav>
                 </h3>
             </div>
         </header>
-        <script src="scripts/file_script.js"></script>
+
+        <script>
+            async function fetchData(link)
+            {
+                const url = link;
+                
+                try
+                {
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    return data;
+                }
+                catch (error)
+                {
+                    console.error(error.message);
+                }
+            }
+
+            async function populatePage(link)
+            {
+                console.log("Calling API:", link);
+                const data = await fetchData(link);
+                console.log("Received data:", data);
+
+                const href_pcto = document.getElementById("href_pcto");
+                const href_projects = document.getElementById("href_projects");
+                const href_orientation = document.getElementById("href_orientation");
+                const label_lang = document.getElementById("label_lang");
+                const txt1 = document.getElementById("txt1");
+
+                label_lang.textContent = data.label_lang;
+                href_pcto.textContent = data.href_pcto;
+                href_projects.textContent = data.href_projects;
+                href_orientation.textContent = data.href_orientation;
+                txt1.textContent = data.txt1;
+            }
+
+            document.getElementById("languages").addEventListener("change", function()
+            {
+                const languages = document.getElementById("languages").value;
+                if(languages != "")
+                {
+                    populatePage(`/api/lang/${languages}`);
+                }
+            });
+        </script>
         <script>
             window.onload = function()
             {
-                const aux = document.getElementById("href_trip");
+                const aux = document.getElementById("href_pcto");
                 aux.style.backgroundColor = "rgb(23, 73, 188)";
                 aux.style.borderRadius = "50px";
             };
         </script>
-        <p>
+        <p id = "txt1">
 
         </p>
     </body>
