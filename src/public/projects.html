@@ -11,26 +11,22 @@
                 text-decoration-color: rgb(51, 51, 240);
                 font-size: 75px;
                 margin-bottom: 0px;
+                color: white;
             }
             #sub_title
             {
                 margin-top: 0px;
                 font-size: 17px;
             }
-            .top_bar
-            {
-                font-size: 20px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-bottom: 0px;
-                margin-top: 0px;
-                
-            }
             #label_lang
             {
                 text-align: right;
                 font-size: 17px
+            }
+            #progetti
+            {
+                font-size: 18px;
+                line-height: 1.6;
             }
         </style>
         <link rel="icon" type="image/x-icon" href="imgs/MyIO.png">
@@ -49,6 +45,7 @@
                         <ul>
                             <li><a href ="index.html" id="href_home">Home</a></li>
                             <li><a href ="pcto.html" id="href_pcto">PCTO</a></li>
+                            <li><a href ="civic.html" id="href_civic">Educazione<br>Civica</a></li>
                             <li><a href ="projects.html" id="href_projects">Progetti</a></li>
                             <li><a href ="orientation.html" id="href_orientation">Orientamento</a></li>
                         </ul>
@@ -64,8 +61,39 @@
                 aux.style.borderRadius = "50px";
             };
         </script>
-        <p id = "txt1">
+        <main>
+            <section class="frame">
+                <section class="content-section">
+                    <h1>Progetti</h1>
+                    <p>
+                        Durante il mio percorso di studio, ci sono stati progetti di cui vado particolarmente fiero.<br>
+                        <ul id="progetti">
+                            <li><a href="https://github.com/Sim1-bit/Snake_Assembly.git">Snake</a></li>
+                                Il mio orgoglio, uno snake al 100% funzionante programmato in assembly per un progetto di Sistemi e Reti durante il 3° anno;
+                            <li><a href="https://github.com/Sim1-bit/Run-Stole.git">Run & Stole</a></li>
+                                Gioco realizzato in C# come gioco dell'anno in 3° superiore;
+                            <li><a href="https://github.com/Sim1-bit/Elementals.git">Elementals</a></li>
+                                Gioco realizzato in C# come gioco dell'anno in 4° superio;                
+                        </ul>
+                    </p>
 
-        </p>
+                    <br>
+
+                    <p>
+                        Durante il periodo di PCTO ho dedicato del tempo alla creazione di alcuni progetti,
+                        i principali si possono trovare nella pagina dedicata, i secondari sono i seguenti:<br>
+                        <ul id="progetti">
+                            <li><a href="https://github.com/Sim1-bit/Snake_Assembly.git">Cubo di Rubik</a></li>
+                                Uno dei primi fu la creazione di un programma per poter usare il cubo di Rubik (visualizzato in 2D) tramite libreia Windows Form di C#;
+                            <li><a href="https://github.com/Sim1-bit/Run-Stole.git">Prato Fiorito</a></li>
+                                Gioco realizzato in C# come gioco dell'anno in 3° superiore;
+                            <li><a href="">Studio di Librerie ed Engine per la creazione di giochi</a></li>
+                                Durante il periodo di PCTO ho iniziato un studio individuale di alcuni strumenti per lo svilluppo di giochi,<br>
+                                Tra gli engine troviamo Godot e Unreal Engine, entrambi gratuti e estremamente usati poichè facili da usare e con diverso materiale disponibile online per informarsi e imparare; 
+                    </p>
+                </section>
+            </section>
+            
+        </main>
     </body>
 </html>

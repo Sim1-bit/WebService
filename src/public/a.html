@@ -18,10 +18,9 @@
                 margin-top: 0px;
                 font-size: 17px;
             }
-            #label_lang
+            main 
             {
-                text-align: right;
-                font-size: 17px
+                position: absolute;
             }
         </style>
         <link rel="icon" type="image/x-icon" href="imgs/MyIO.png">
@@ -29,89 +28,19 @@
     
     <body>  
         <header>
-            <div class="top_bar">
-                <h1 id = "title">My WebIO</h1>
-                <div>
-                    <label id="label_lang" for="languages">Lingue:</label>
-                    <select id="languages">
-                        <option value=""> </option>
-                        <option value="en">English</option>
-                        <option value="it">Italiano</option>
-                    </select>
-                </div>
-            </div>
+            <h1 id = "title">My WebIO</h1>
             
             <div class="top_bar">
                 <h3 id = "sub_title">Simone Giorgini 5CM</h3>
                 <h3>
                     <nav>
                         <ul>
-                            <li><a href ="index.html" id="href_home">Home</a></li>
                             <li><a href ="pcto.html" id="href_pcto">PCTO</a></li>
-                            <li><a href ="civic.html" id="href_civic">Educazione<br>Civica</a></li>
-                            <li><a href ="projects.html" id="href_projects">Progetti</a></li>
-                            <li><a href ="orientation.html" id="href_orientation">Orientamento</a></li>
                         </ul>
                     </nav>
                 </h3>
             </div>
         </header>
-
-        <script>
-            async function fetchData(link)
-            {
-                const url = link;
-                
-                try
-                {
-                    const response = await fetch(url);
-                    const data = await response.json();
-                    return data;
-                }
-                catch (error)
-                {
-                    console.error(error.message);
-                }
-            }
-
-            async function populatePage(link)
-            {
-                console.log("Calling API:", link);
-                const data = await fetchData(link);
-                console.log("Received data:", data);
-
-                const href_pcto = document.getElementById("href_pcto");
-                const href_projects = document.getElementById("href_projects");
-                const href_civic = document.getElementById("href_civic");
-                const href_orientation = document.getElementById("href_orientation");
-                const label_lang = document.getElementById("label_lang");
-                const txt1 = document.getElementById("txt1");
-
-                label_lang.innerHTML = data.label_lang;
-                href_pcto.innerHTML = data.href_pcto;
-                href_civic.innerHTML = data.href_civic;
-                href_projects.innerHTML = data.href_projects;
-                href_orientation.innerHTML = data.href_orientation;
-                txt1.innerHTML = data.txt1;
-            }
-
-            document.getElementById("languages").addEventListener("change", function()
-            {
-                const languages = document.getElementById("languages").value;
-                if(languages != "")
-                {
-                    populatePage(`/api/lang/${languages}`);
-                }
-            });
-        </script>
-        <script>
-            window.onload = function()
-            {
-                const aux = document.getElementById("href_pcto");
-                aux.style.backgroundColor = "rgb(23, 73, 188)";
-                aux.style.borderRadius = "50px";
-            };
-        </script>
 
         <main>
             <section class="frame">
@@ -124,9 +53,11 @@
                         <br>
                     </p>
                 </section>
-    
+                <br>
+                <br>
                 <section class="content-section">
                     <p>
+                        <br>
                         <h2>L'azienda Pluservice</h2>
                         L'impresa si occupa della realizzazione di infrastrutture hardware e software per le aziende di trasporto pubblico di diverse aziende in tutta Italia,
                         tanto che, durante il mio primo periodo di PCTO, hanno realizzato <a href="https://www.pluservice.net/it/case-history/marta-sistema-bigliettazione-elettronica-marche">MARTA</a>.<br>
@@ -134,16 +65,16 @@
                         basato su tecnologia Account Based Ticketing, che registra i biglietti in formato digitale sull'App invece che su carta.
                     </p>
                     <img src="imgs/pcto/Marta_logo.jpg" alt="Marta logo" width="500" height="auto">
+                    <br>
                 </section>
-
+                <br>
                 <section class="content-section">
                     <p>
                         <h2>Un'azienda attenta al personale</h2>
                         L'azienda, ha dimostrato fin dall'inizio di tenere ai propri dipenti, tanto da dedicarne diverse area della struttura come un'area svago con biliardino e ping pong e una zona palestra.
                     </p>
-                    <img src="imgs/pcto/ohm.png" alt="Marta logo" width="500" height="auto">
+                    <img src="imgs/pcto/ohm.png" alt="Marta logo" width="250" height="auto">
                 </section>
-
                 <section class="content-section">
                     <p>
                         <h1>La mia esperienza</h1>
@@ -156,27 +87,12 @@
                         
                         Sempre per restare in linea con l'argomento, ma anche con le mie passioni, mi sono lanciato in 2 esperimenti:<br>
                         Il primo fu la realizzaione di un Tris Multiplayer sia lato <a href="https://github.com/Sim1-bit/Tris_Multiplayer_U.git">client</a> che <a href="https://github.com/Sim1-bit/Tris_Multiplayer_S.git">server</a>.
-                        <br>
-                        <br>
-                        <video width="500" height="auto" controls>
-                            <source src="" type="video/mp4">
-                        </video>
-                        <br>
-                        <br>
-                        <br>
+
                         L'<a href="https://github.com/Sim1-bit/Test_Game.git">altro esperimento</a> riguardante le connessioni e stata la realizzazione di "gioco" che prevedeva solo la possibilità di far connettere più giocatori fra di loro qualora
                         uno di essi avesse aperto una sessione come server.<br>
                         L'ispirazione è stata il gioco Minecraft che permette di aprire un mondo (partita) a tutti gli altri giocatori collegati alla stessa rete dell'host.
-                        <br><br>
-                        <video width="500" height="auto" controls>
-                            <source src="video/mp.mp4" type="video/mp4">
-                        </video>
-
                         <br>
-                        <br>
-
                         Il tempo richiesto da queste due attività non è stato molto, per tanto ho continuato a realizzare altri piccoli giochetti e studiarmi nuove librerie del C# e non solo.
-                        <br>
                     </p>
                 </section>
             </section>

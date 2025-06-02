@@ -1,7 +1,8 @@
 body 
 {
     margin: 0;
-    background-color: rgb(211, 242, 247);
+    /*background-color: rgb(211, 242, 247);*/
+    background-color: rgb(255, 255, 255);
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
@@ -66,7 +67,7 @@ nav a:hover
 
 a
 {
-    color: rgb(255, 143, 158);
+    color: rgb(78, 142, 158);
 }
 
 a:hover
@@ -76,3 +77,77 @@ a:hover
     color: rgb(3, 53, 168);
     border-radius: 5px;
 }
+
+/*main 
+{
+    padding: 20px 10%;
+    background-color: #ffffff;
+}*/
+
+.top_bar
+{
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    
+}
+
+.frame 
+{
+    background-color: #79a3ad;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 200px;
+}
+
+.content-section 
+{
+    font-size: 25px;
+    margin-bottom: 50px;
+    background-color: #ffffff;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: justify;
+}
+
+.styled-image 
+{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1, h2 
+{
+    color: rgb(23, 73, 188);
+}
+
+h1 
+{
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+h2 
+{
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+p 
+{
+    font-size: 18px;
+    line-height: 1.6;
+}
+

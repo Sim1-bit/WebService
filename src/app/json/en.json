@@ -1,7 +1,7 @@
 {
     "label_lang" : "Languages:",
     "href_pcto" : "PCTO",
+    "href_civic" : "Civic<br>Education",
     "href_projects" : "Projects",
-    "href_orientation" : "Orientation",
-    "txt1" : "Good morning"
+    "href_orientation" : "Orientation"
 }
