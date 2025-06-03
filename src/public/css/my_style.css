@@ -2,7 +2,7 @@ body
 {
     margin: 0;
     /*background-color: rgb(211, 242, 247);*/
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(19, 48, 59);
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
@@ -10,7 +10,7 @@ body
 
 header 
 {
-    background-color: rgb(5, 104, 190);
+    background-color: rgb(5, 66, 119);
     color: white;
     text-align: left;
     padding: 20px;
@@ -67,7 +67,7 @@ nav a:hover
 
 a
 {
-    color: rgb(78, 142, 158);
+    color: rgb(1, 109, 197);
 }
 
 a:hover
